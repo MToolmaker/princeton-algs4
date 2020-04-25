@@ -4,6 +4,9 @@
 #pragma once
 
 
+#include "tests/test.h"
+
 int main() {
+    tests::runAllTests();
     return 0;
 }
