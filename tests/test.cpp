@@ -3,9 +3,10 @@
 //
 
 #include "data_structures/stack.h"
-
+#include "data_structures/union_find.h"
 namespace tests {
     void runAllTests() {
         runAllStackTests();
+        runAllUnionFindTests();
     }
 }
