@@ -2,31 +2,28 @@
 // Created by Ivan Yarkov on 26/04/2020.
 //
 
-#ifndef PRINCETON_ALGS4_NEW_UNION_FIND_H
-#define PRINCETON_ALGS4_NEW_UNION_FIND_H
-namespace data_structures{
-struct UnionFind {
-    explicit UnionFind(int numberOfElements);
+namespace data_structures {
+	struct UnionFind {
+		explicit UnionFind(int numberOfElements);
 
-    UnionFind(UnionFind &another) = delete;
+		UnionFind(UnionFind &another) = delete;
 
-    bool areConnected(int firstElement, int secondElement);
+		bool areConnected(int firstElement, int secondElement);
 
-    void doUnion(int firstElement, int secondElement);
+		void doUnion(int firstElement, int secondElement);
 
-    ~UnionFind();
+		~UnionFind();
 
-    bool operator==(const UnionFind &rhs) = delete;
+		bool operator==(const UnionFind &rhs) = delete;
 
-    bool operator!=(const UnionFind &rhs) = delete;
+		bool operator!=(const UnionFind &rhs) = delete;
 
-private:
-    int *myElements;
-    int *mySizes;
-    int myNumberOfElements;
+	private:
+		int *myElements;
+		int *mySizes;
+		int myNumberOfElements;
 
-    int root(int element);
-};
+		int root(int element);
+	};
 
 };
-#endif //PRINCETON_ALGS4_NEW_UNION_FIND_H
