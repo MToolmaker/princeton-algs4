@@ -2,6 +2,9 @@
 // Created by Ivan Yarkov on 26/04/2020.
 //
 
+#ifndef PRINCETON_ALGS4_NEW_SRC_DATA_STRUCTURES_UNION_FIND_H_
+#define PRINCETON_ALGS4_NEW_SRC_DATA_STRUCTURES_UNION_FIND_H_
+
 namespace data_structures {
 	struct UnionFind {
 		explicit UnionFind(int numberOfElements);
@@ -27,3 +30,4 @@ namespace data_structures {
 	};
 
 };
+#endif //PRINCETON_ALGS4_NEW_SRC_DATA_STRUCTURES_UNION_FIND_H_
