@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(SOURCES
         main.cpp
         src/data_structures/union_find.cpp
+        exercises/percolation/percolation.cpp
         )
 
 set(TEST_SOURCES
@@ -17,6 +18,7 @@ set(TEST_SOURCES
 set(HEADERS
         src/data_structures/stack.h
         src/data_structures/union_find.h
+        exercises/percolation/percolation.h
         )
 
 set(TEST_HEADERS
