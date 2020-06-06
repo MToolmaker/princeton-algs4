@@ -3,7 +3,7 @@
 //
 
 #include <cassert>
-#include "union_find.h"
+#include <data_structures/union_find.h>
 
 namespace data_structures {
     UnionFind::UnionFind(int numberOfElements) {
