@@ -7,6 +7,7 @@
 #include <iostream>
 #include <exercises/percolation.h>
 #include <data_structures/union_find.h>
+
 namespace exercises {
 	enum class CellColor {
 		WHITE,
