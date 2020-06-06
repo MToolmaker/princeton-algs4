@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "../../src/data_structures/stack.h"
+#include <data_structures/stack.h>
 
 namespace tests {
     void testStackWithOneElement();

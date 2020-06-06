@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "../../src/data_structures/union_find.h"
+#include <data_structures/union_find.h>
 
 namespace tests {
     void testElementsConnection();

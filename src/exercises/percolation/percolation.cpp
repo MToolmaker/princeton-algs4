@@ -5,9 +5,8 @@
 #include <cassert>
 #include <random>
 #include <iostream>
-#include "percolation.h"
-#include "../../src/data_structures/union_find.h"
-
+#include <exercises/percolation.h>
+#include <data_structures/union_find.h>
 namespace exercises {
 	enum class CellColor {
 		WHITE,
