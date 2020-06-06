@@ -51,13 +51,13 @@ namespace exercises {
 		for (int i = n * n; i >= n * (n - 1) + 1; i--) {
 			unionFind.doUnion(i, n * n + 1);
 		}
-		std::mt19937 rng(current_time_nanoseconds());
+		std::mt19937 generator(current_time_nanoseconds());
 		std::uniform_int_distribution<> six(1, n * n);
 		int numberOfOpenSites = 0;
 		int randomElement;
 		do {
 			do {
-				randomElement = six(rng);
+				randomElement = six(generator);
 			} while (cellColors[randomElement - 1] == CellColor::WHITE);
 			cellColors[randomElement - 1] = CellColor::WHITE;
 			numberOfOpenSites++;
