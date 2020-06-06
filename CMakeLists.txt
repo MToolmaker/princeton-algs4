@@ -13,6 +13,7 @@ set(TEST_SOURCES
         tests/src/data_structures/stack_test.cpp
         tests/src/test.cpp
         tests/src/data_structures/union_find_test.cpp
+        tests/src/exercises/percolation_test.cpp
         )
 
 set(HEADERS
@@ -25,6 +26,7 @@ set(TEST_HEADERS
         tests/include/data_structures/stack_test.h
         tests/include/test.h
         tests/include/data_structures/union_find_test.h
+        tests/include/exercises/percolation_test.h
         )
 
 include_directories("${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/tests/include")
