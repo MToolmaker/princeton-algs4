@@ -61,7 +61,7 @@ namespace exercises {
 			cellColors[randomElement - 1] = CellColor::WHITE;
 			numberOfOpenSites++;
 			openAdjacentSites(n, unionFind, cellColors, randomElement);
-		} while (unionFind.areConnected(0, n * n + 1));
+		} while (!unionFind.areConnected(0, n * n + 1));
 		delete[] cellColors;
 		return static_cast<double>(numberOfOpenSites) / static_cast<double>(n * n);;
 	}
