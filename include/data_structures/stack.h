@@ -14,43 +14,43 @@ namespace data_structures {
         explicit Stack(int capacity) {
             assert(capacity >= 1);
             myCapacity = capacity;
-            currentSize = 0;
+			myCurrentSize = 0;
             array = new T[myCapacity];
         }
 
         void push(T element) {
-            if (currentSize >= myCapacity) {
+            if (myCurrentSize >= myCapacity) {
                 resize(2 * myCapacity);
             }
-            array[currentSize] = element;
-            currentSize++;
+            array[myCurrentSize] = element;
+            myCurrentSize++;
         }
 
         T pop() {
-            assert(currentSize > 0);
-            return array[--currentSize];
+            assert(myCurrentSize > 0);
+            return array[--myCurrentSize];
         }
 
         T peek() {
-            return array[currentSize - 1];
+            return array[myCurrentSize - 1];
         }
 
         int getSize() {
-            return currentSize;
+            return myCurrentSize;
         }
 
         int isEmpty() {
-            return currentSize <= 0;
+            return myCurrentSize <= 0;
         }
 
     private:
         int myCapacity;
         T *array;
-        int currentSize;
+        int myCurrentSize;
 
 		void resize(int newSize) {
 			T *newUnderlyingArray = new T[newSize];
-			for (int i = 0; i < currentSize; i++) {
+			for (int i = 0; i < myCurrentSize; i++) {
 				newUnderlyingArray[i] = array[i];
 			}
 			delete[] array;
