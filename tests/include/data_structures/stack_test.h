@@ -6,7 +6,7 @@
 #define PRINCETON_ALGS4_TESTS_DATA_STRUCTURES_STACK_TEST_H_
 
 namespace tests {
-    void runAllStackTests();
+    void runStackTests();
 }
 
 #endif //PRINCETON_ALGS4_TESTS_DATA_STRUCTURES_STACK_TEST_H_

@@ -6,6 +6,6 @@
 #define PRINCETON_ALGS4_TESTS_TEST_H_
 
 namespace tests {
-    void runAllTests();
+    void runTests();
 }
 #endif //PRINCETON_ALGS4_TESTS_TEST_H_

@@ -7,9 +7,9 @@
 #include <exercises/percolation_test.h>
 
 namespace tests {
-    void runAllTests() {
-        runAllStackTests();
-        runAllUnionFindTests();
-        runAllPercolationTests();
+    void runTests() {
+		runStackTests();
+		runUnionFindTests();
+		runPercolationTests();
     }
 }

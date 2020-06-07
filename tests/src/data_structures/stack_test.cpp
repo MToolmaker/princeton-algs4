@@ -12,7 +12,7 @@ namespace tests {
 
     void testPeek();
 
-    void runAllStackTests() {
+    void runStackTests() {
         testStackWithOneElement();
         testStackResizing();
         testPeek();

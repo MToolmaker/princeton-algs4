@@ -10,7 +10,7 @@ namespace tests {
 
     void testUnion();
 
-    void runAllUnionFindTests() {
+    void runUnionFindTests() {
         testElementsConnection();
         testUnion();
         std::cout << "All union-find tests passed" << std::endl;

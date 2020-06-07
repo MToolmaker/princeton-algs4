@@ -5,6 +5,6 @@
 #include "tests/include/test.h"
 
 int main() {
-    tests::runAllTests();
+	tests::runTests();
     return 0;
 }

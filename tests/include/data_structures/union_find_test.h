@@ -6,6 +6,6 @@
 #define PRINCETON_ALGS4_TESTS_DATA_STRUCTURES_UNION_FIND_TEST_H_
 
 namespace tests {
-    void runAllUnionFindTests();
+    void runUnionFindTests();
 }
 #endif //PRINCETON_ALGS4_TESTS_DATA_STRUCTURES_UNION_FIND_TEST_H_
