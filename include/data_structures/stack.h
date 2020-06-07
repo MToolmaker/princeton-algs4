@@ -22,7 +22,7 @@ namespace data_structures {
             if (currentSize >= myCapacity) {
                 int newSize = 2 * myCapacity;
                 T *newUnderlyingArray = new T[newSize];
-                for (int i = 0; i < myCapacity; i++) {
+                for (int i = 0; i < currentSize; i++) {
                     newUnderlyingArray[i] = array[i];
                 }
                 delete[] array;
