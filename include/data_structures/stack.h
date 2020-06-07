@@ -49,12 +49,12 @@ namespace data_structures {
         int myCurrentSize;
 
 		void resize(int newSize) {
-			T *newUnderlyingArray = new T[newSize];
+			T *newArray = new T[newSize];
 			for (int i = 0; i < myCurrentSize; i++) {
-				newUnderlyingArray[i] = myArray[i];
+				newArray[i] = myArray[i];
 			}
 			delete[] myArray;
-			myArray = newUnderlyingArray;
+			myArray = newArray;
 			myCapacity = newSize;
 		}
     };
