@@ -46,6 +46,10 @@ namespace data_structures {
 			return myCurrentSize <= 0;
 		}
 
+		virtual ~Stack() {
+			delete [] myArray;
+		}
+
 	private:
 		int myCapacity;
 		T *myArray;
