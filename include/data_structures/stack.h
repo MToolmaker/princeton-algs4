@@ -20,14 +20,7 @@ namespace data_structures {
 
         void push(T element) {
             if (currentSize >= myCapacity) {
-                int newSize = 2 * myCapacity;
-                T *newUnderlyingArray = new T[newSize];
-                for (int i = 0; i < currentSize; i++) {
-                    newUnderlyingArray[i] = array[i];
-                }
-                delete[] array;
-                array = newUnderlyingArray;
-                myCapacity = newSize;
+                resize(2 * myCapacity);
             }
             array[currentSize] = element;
             currentSize++;
@@ -54,6 +47,16 @@ namespace data_structures {
         int myCapacity;
         T *array;
         int currentSize;
+
+		void resize(int newSize) {
+			T *newUnderlyingArray = new T[newSize];
+			for (int i = 0; i < currentSize; i++) {
+				newUnderlyingArray[i] = array[i];
+			}
+			delete[] array;
+			array = newUnderlyingArray;
+			myCapacity = newSize;
+		}
     };
 }
 #endif //PRINCETON_ALGS4_SRC_DATA_STRUCTURES_STACK_H_
