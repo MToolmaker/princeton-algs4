@@ -15,24 +15,24 @@ namespace data_structures {
             assert(capacity >= 1);
             myCapacity = capacity;
 			myCurrentSize = 0;
-            array = new T[myCapacity];
+			myArray = new T[myCapacity];
         }
 
         void push(T element) {
             if (myCurrentSize >= myCapacity) {
                 resize(2 * myCapacity);
             }
-            array[myCurrentSize] = element;
+			myArray[myCurrentSize] = element;
             myCurrentSize++;
         }
 
         T pop() {
             assert(myCurrentSize > 0);
-            return array[--myCurrentSize];
+            return myArray[--myCurrentSize];
         }
 
         T peek() {
-            return array[myCurrentSize - 1];
+            return myArray[myCurrentSize - 1];
         }
 
         int getSize() {
@@ -45,16 +45,16 @@ namespace data_structures {
 
     private:
         int myCapacity;
-        T *array;
+        T *myArray;
         int myCurrentSize;
 
 		void resize(int newSize) {
 			T *newUnderlyingArray = new T[newSize];
 			for (int i = 0; i < myCurrentSize; i++) {
-				newUnderlyingArray[i] = array[i];
+				newUnderlyingArray[i] = myArray[i];
 			}
-			delete[] array;
-			array = newUnderlyingArray;
+			delete[] myArray;
+			myArray = newUnderlyingArray;
 			myCapacity = newSize;
 		}
     };
