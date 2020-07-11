@@ -20,14 +20,17 @@ set(HEADERS
         include/data_structures/stack.h
         include/data_structures/union_find.h
         include/exercises/percolation.h
-        include/data_structures/queue.h)
+        include/data_structures/queue.h
+        include/data_structures/vector.h)
 
 set(TEST_HEADERS
         tests/include/data_structures/stack_test.h
         tests/include/test.h
         tests/include/data_structures/union_find_test.h
         tests/include/exercises/percolation_test.h
-        tests/include/data_structures/queue_test.h)
+        tests/include/data_structures/queue_test.h
+        tests/include/data_structures/vector_test.h
+        tests/src/data_structures/vector_test.cpp)
 
 include_directories("${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/tests/include")
 
