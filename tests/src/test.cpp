@@ -6,6 +6,7 @@
 #include <data_structures/union_find_test.h>
 #include <data_structures/queue_test.h>
 #include <data_structures/vector_test.h>
+#include <data_structures/sort_test.h>
 #include <exercises/percolation_test.h>
 
 namespace tests {
@@ -15,5 +16,6 @@ namespace tests {
 		runPercolationTests();
 		runQueueTests();
 		runVectorTests();
+		runSortTests();
 	}
 }
