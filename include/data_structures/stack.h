@@ -47,7 +47,7 @@ namespace data_structures {
 		}
 
 		virtual ~Stack() {
-			delete [] myArray;
+			delete[] myArray;
 		}
 
 	private:

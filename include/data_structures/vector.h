@@ -19,7 +19,7 @@ namespace data_structures {
 			myArray = new T[myCapacity];
 		}
 
-		Vector(const Vector &vector) {
+		Vector(const Vector& vector) {
 			myCapacity = vector.myCapacity;
 			myCurrentSize = vector.myCurrentSize;
 			myArray = new T[myCapacity];
@@ -28,7 +28,7 @@ namespace data_structures {
 			}
 		}
 
-		Vector &operator=(const Vector &vector) {
+		Vector& operator=(const Vector& vector) {
 			if (this == &vector) return *this;
 			std::swap(*this, vector);
 			return *this;
@@ -39,7 +39,7 @@ namespace data_structures {
 			return myArray[index];
 		};
 
-		friend std::ostream &operator<<(std::ostream &outputStream, const Vector &vector) {
+		friend std::ostream& operator<<(std::ostream& outputStream, const Vector& vector) {
 			outputStream << "[ ";
 			for (int i = 0; i < vector.myCurrentSize; i++) {
 				outputStream << vector.myArray[i] << " ";
@@ -60,7 +60,7 @@ namespace data_structures {
 		}
 
 		~Vector() {
-			delete [] myArray;
+			delete[] myArray;
 		}
 
 	private:

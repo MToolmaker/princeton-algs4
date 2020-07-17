@@ -9,7 +9,7 @@ namespace data_structures {
 	struct UnionFind {
 		explicit UnionFind(int numberOfElements);
 
-		UnionFind(UnionFind &another) = delete;
+		UnionFind(UnionFind& another) = delete;
 
 		bool areConnected(int firstElement, int secondElement);
 
@@ -17,9 +17,9 @@ namespace data_structures {
 
 		~UnionFind();
 
-		bool operator==(const UnionFind &rhs) = delete;
+		bool operator==(const UnionFind& rhs) = delete;
 
-		bool operator!=(const UnionFind &rhs) = delete;
+		bool operator!=(const UnionFind& rhs) = delete;
 
 	private:
 		int *myElements;
