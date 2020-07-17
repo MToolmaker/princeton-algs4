@@ -8,18 +8,43 @@
 namespace tests {
 	void runInsertionSortTest();
 
+	void runSelectionSortTest();
+
 	void runSortTests() {
 		runInsertionSortTest();
+		runSelectionSortTest();
+		std::cout << "All sort tests passed" << std::endl;
 	}
+
+	void fillWithNaturalNumbersInDescendingOrderFrom(int number, data_structures::Vector<int> &vector);
+
+	void checkContainsNaturalNumberInAscendingOrder(data_structures::Vector<int> &vector);
 
 	void runInsertionSortTest() {
 		data_structures::Vector<int> vector(1);
-		for (int i = 9; i >= 0; --i) {
-			vector.pushBack(i);
-		}
+		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
 		algorithms::insertion_sort(vector);
-		for (int i = 0; i < 10; ++i) {
+		checkContainsNaturalNumberInAscendingOrder(vector);
+	}
+
+	void runSelectionSortTest() {
+		data_structures::Vector<int> vector(1);
+		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
+		algorithms::selection_sort(vector);
+		checkContainsNaturalNumberInAscendingOrder(vector);
+	}
+
+	void checkContainsNaturalNumberInAscendingOrder(data_structures::Vector<int> &vector) {
+		int size = vector.size();
+		for (int i = 0; i < size; ++i) {
 			assert(vector[i] == i);
+		}
+	}
+
+	void fillWithNaturalNumbersInDescendingOrderFrom(int number, data_structures::Vector<int> &vector) {
+		assert(number >= 1);
+		for (int i = number; i >= 0; --i) {
+			vector.pushBack(i);
 		}
 	}
 }
