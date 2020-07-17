@@ -5,21 +5,17 @@
 #ifndef PRINCETON_ALGS4_INCLUDE_ALGORITHMS_SORT_H_
 #define PRINCETON_ALGS4_INCLUDE_ALGORITHMS_SORT_H_
 
-#include <data_structures/vector.h>
+namespace algorithms {
+	template<class T>
+	void swap(data_structures::Vector<T>& vector, int i, int j);
+}
 
 namespace {
-	template<class T>
-	void swap(data_structures::Vector<T>& vector, int i, int j) {
-		int tmp = vector[j];
-		vector[j] = vector[i];
-		vector[i] = tmp;
-	}
-
 	template<class T>
 	void n_sort(int n, data_structures::Vector<T>& vector, int size) {
 		for (int i = n; i < size; i += n) {
 			for (int j = i; j >= n && vector[j - n] > vector[j]; j -= n) {
-				swap(vector, j, j - n);
+				algorithms::swap(vector, j, j - n);
 			}
 		}
 	}
@@ -61,6 +57,13 @@ namespace algorithms {
 			n_sort(n, vector, size);
 			n = n / 3;
 		}
+	}
+
+	template<class T>
+	void swap(data_structures::Vector<T>& vector, int i, int j) {
+		int tmp = vector[j];
+		vector[j] = vector[i];
+		vector[i] = tmp;
 	}
 }
 #endif //PRINCETON_ALGS4_INCLUDE_ALGORITHMS_SORT_H_
