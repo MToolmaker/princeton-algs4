@@ -23,7 +23,8 @@ set(HEADERS
         include/exercises/percolation.h
         include/data_structures/queue.h
         include/data_structures/vector.h
-        include/algorithms/sort.h)
+        include/algorithms/sort.h
+        include/algorithms/shuffle.h)
 
 set(TEST_HEADERS
         tests/include/data_structures/stack_test.h
