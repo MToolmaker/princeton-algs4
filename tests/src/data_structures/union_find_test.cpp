@@ -13,7 +13,7 @@ namespace tests {
     void runUnionFindTests() {
         testElementsConnection();
         testUnion();
-        std::cout << "All union-find tests passed" << std::endl;
+		std::cout << "All union-find tests passed" << std::endl;
     }
 
     void testElementsConnection() {

@@ -6,9 +6,10 @@
 #define PRINCETON_ALGS4_INCLUDE_ALGORITHMS_SORT_H_
 
 #include <data_structures/vector.h>
+
 namespace {
 	template<class T>
-	void swap(data_structures::Vector<T> &vector, int i, int j) {
+	void swap(data_structures::Vector<T>& vector, int i, int j) {
 		int tmp = vector[j];
 		vector[j] = vector[i];
 		vector[i] = tmp;
@@ -17,7 +18,7 @@ namespace {
 
 namespace algorithms {
 	template<class T>
-	void insertion_sort(data_structures::Vector<T> &vector) {
+	void insertion_sort(data_structures::Vector<T>& vector) {
 		int size = vector.size();
 		for (int i = 1; i < size; ++i) {
 			for (int j = i; j >= 1 && vector[j - 1] > vector[j]; --j) {
@@ -27,7 +28,7 @@ namespace algorithms {
 	}
 
 	template<class T>
-	void selection_sort(data_structures::Vector<T> &vector) {
+	void selection_sort(data_structures::Vector<T>& vector) {
 		int size = vector.size();
 		for (int i = 0; i < size; ++i) {
 			int smallest = vector[i];
@@ -39,6 +40,11 @@ namespace algorithms {
 			}
 			swap(vector, smallestIndex, i);
 		}
+	}
+
+	template<class T>
+	void shell_sort(data_structures::Vector<T>& vector) {
+
 	}
 }
 #endif //PRINCETON_ALGS4_INCLUDE_ALGORITHMS_SORT_H_

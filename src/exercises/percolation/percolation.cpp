@@ -16,23 +16,23 @@ namespace exercises {
 
 	long current_time_nanoseconds();
 
-	void connectLeftIfOpen(data_structures::UnionFind &unionFind,
+	void connectLeftIfOpen(data_structures::UnionFind& unionFind,
 						   const CellColor *cellColors,
 						   int randomElement);
 
-	void connectTopIfOpen(int n, data_structures::UnionFind &unionFind,
+	void connectTopIfOpen(int n, data_structures::UnionFind& unionFind,
 						  const CellColor *cellColors,
 						  int randomElement);
 
-	void connectRightIfOpen(data_structures::UnionFind &unionFind,
+	void connectRightIfOpen(data_structures::UnionFind& unionFind,
 							const CellColor *cellColors,
 							int randomElement);
 
-	void connectBottomIfOpen(int n, data_structures::UnionFind &unionFind,
+	void connectBottomIfOpen(int n, data_structures::UnionFind& unionFind,
 							 const CellColor *cellColors,
 							 int randomElement);
 
-	void openAdjacentSites(int n, data_structures::UnionFind &unionFind,
+	void openAdjacentSites(int n, data_structures::UnionFind& unionFind,
 						   const CellColor *cellColors,
 						   int randomElement);
 
@@ -67,7 +67,7 @@ namespace exercises {
 		return static_cast<double>(numberOfOpenSites) / static_cast<double>(n * n);;
 	}
 
-	void openAdjacentSites(int n, data_structures::UnionFind &unionFind,
+	void openAdjacentSites(int n, data_structures::UnionFind& unionFind,
 						   const CellColor *cellColors,
 						   int randomElement) {
 		if (randomElement == 1) {
@@ -107,7 +107,7 @@ namespace exercises {
 	}
 
 	void
-	connectBottomIfOpen(int n, data_structures::UnionFind &unionFind,
+	connectBottomIfOpen(int n, data_structures::UnionFind& unionFind,
 						const CellColor *cellColors,
 						int randomElement) {
 		if (cellColors[randomElement + n - 1] == CellColor::WHITE) {
@@ -115,7 +115,7 @@ namespace exercises {
 		}
 	}
 
-	void connectRightIfOpen(data_structures::UnionFind &unionFind,
+	void connectRightIfOpen(data_structures::UnionFind& unionFind,
 							const CellColor *cellColors,
 							int randomElement) {
 		if (cellColors[randomElement] == CellColor::WHITE) {
@@ -123,7 +123,7 @@ namespace exercises {
 		}
 	}
 
-	void connectTopIfOpen(int n, data_structures::UnionFind &unionFind,
+	void connectTopIfOpen(int n, data_structures::UnionFind& unionFind,
 						  const CellColor *cellColors,
 						  int randomElement) {
 		if (cellColors[randomElement - n - 1] == CellColor::WHITE) {
@@ -131,7 +131,7 @@ namespace exercises {
 		}
 	}
 
-	void connectLeftIfOpen(data_structures::UnionFind &unionFind, const CellColor *cellColors, int randomElement) {
+	void connectLeftIfOpen(data_structures::UnionFind& unionFind, const CellColor *cellColors, int randomElement) {
 		if (cellColors[randomElement - 2] == CellColor::WHITE) {
 			unionFind.doUnion(randomElement, randomElement - 1);
 		}

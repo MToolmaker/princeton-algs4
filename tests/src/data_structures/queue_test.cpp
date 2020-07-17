@@ -7,6 +7,7 @@
 
 namespace tests {
 	void testComplexOperations();
+
 	void testIsFull();
 
 	void runQueueTests() {

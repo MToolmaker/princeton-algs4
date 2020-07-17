@@ -6,6 +6,6 @@
 #define PRINCETON_ALGS4_PERCOLATION_H
 
 namespace exercises {
-    double findPercolationNumber(int n);
+	double findPercolationNumber(int n);
 }
 #endif //PRINCETON_ALGS4_PERCOLATION_H
