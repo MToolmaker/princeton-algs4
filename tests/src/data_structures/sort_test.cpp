@@ -10,9 +10,12 @@ namespace tests {
 
 	void runSelectionSortTest();
 
+	void runShellSortTest();
+
 	void runSortTests() {
 		runInsertionSortTest();
 		runSelectionSortTest();
+		runShellSortTest();
 		std::cout << "All sort tests passed" << std::endl;
 	}
 
@@ -22,15 +25,22 @@ namespace tests {
 
 	void runInsertionSortTest() {
 		data_structures::Vector<int> vector(1);
-		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
+		fillWithNaturalNumbersInDescendingOrderFrom(58000, vector);
 		algorithms::insertion_sort(vector);
 		checkContainsNaturalNumberInAscendingOrder(vector);
 	}
 
 	void runSelectionSortTest() {
 		data_structures::Vector<int> vector(1);
-		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
+		fillWithNaturalNumbersInDescendingOrderFrom(900, vector);
 		algorithms::selection_sort(vector);
+		checkContainsNaturalNumberInAscendingOrder(vector);
+	}
+
+	void runShellSortTest() {
+		data_structures::Vector<int> vector(1);
+		fillWithNaturalNumbersInDescendingOrderFrom(58000, vector);
+		algorithms::shell_sort(vector);
 		checkContainsNaturalNumberInAscendingOrder(vector);
 	}
 

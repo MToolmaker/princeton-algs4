@@ -14,6 +14,15 @@ namespace {
 		vector[j] = vector[i];
 		vector[i] = tmp;
 	}
+
+	template<class T>
+	void n_sort(int n, data_structures::Vector<T>& vector, int size) {
+		for (int i = n; i < size; i += n) {
+			for (int j = i; j >= n && vector[j - n] > vector[j]; j -= n) {
+				swap(vector, j, j - n);
+			}
+		}
+	}
 }
 
 namespace algorithms {
@@ -21,9 +30,7 @@ namespace algorithms {
 	void insertion_sort(data_structures::Vector<T>& vector) {
 		int size = vector.size();
 		for (int i = 1; i < size; ++i) {
-			for (int j = i; j >= 1 && vector[j - 1] > vector[j]; --j) {
-				swap(vector, j, j - 1);
-			}
+			n_sort(1, vector, size);
 		}
 	}
 
@@ -44,7 +51,16 @@ namespace algorithms {
 
 	template<class T>
 	void shell_sort(data_structures::Vector<T>& vector) {
-
+		int size = vector.size();
+		int n = 1;
+		int thirdOfSize = size / 3;
+		while (n < thirdOfSize) {
+			n = 3 * n + 1;
+		}
+		while (n >= 1) {
+			n_sort(n, vector, size);
+			n = n / 3;
+		}
 	}
 }
 #endif //PRINCETON_ALGS4_INCLUDE_ALGORITHMS_SORT_H_
