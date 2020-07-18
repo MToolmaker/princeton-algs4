@@ -11,10 +11,10 @@ namespace algorithms {
 }
 
 namespace {
-	template<class T>
-	void n_sort(int n, data_structures::Vector<T>& vector, int size) {
+	template<class T, class Less>
+	void n_sort(int n, data_structures::Vector<T>& vector, int size, Less& less) {
 		for (int i = n; i < size; i += n) {
-			for (int j = i; j >= n && vector[j - n] > vector[j]; j -= n) {
+			for (int j = i; j >= n && less(vector[j], vector[j - n]); j -= n) {
 				algorithms::swap(vector, j, j - n);
 			}
 		}
@@ -22,19 +22,21 @@ namespace {
 }
 
 namespace algorithms {
-	template<class T>
+	template<class T, class Less = std::less<T>>
 	void insertion_sort(data_structures::Vector<T>& vector) {
-		n_sort(1, vector, vector.size());
+		Less less{};
+		n_sort(1, vector, vector.size(), less);
 	}
 
-	template<class T>
+	template<class T, class Less = std::less<T>>
 	void selection_sort(data_structures::Vector<T>& vector) {
+		Less less{};
 		int size = vector.size();
 		for (int i = 0; i < size; ++i) {
 			T smallest = vector[i];
 			int smallestIndex = i;
 			for (int j = i + 1; j < size; ++j) {
-				if (vector[j] < smallest) {
+				if (less(vector[j], smallest)) {
 					smallestIndex = j;
 				}
 			}
@@ -42,7 +44,7 @@ namespace algorithms {
 		}
 	}
 
-	template<class T>
+	template<class T, class Less = std::less<T>>
 	void shell_sort(data_structures::Vector<T>& vector) {
 		int size = vector.size();
 		int n = 1;
@@ -50,8 +52,9 @@ namespace algorithms {
 		while (n < thirdOfSize) {
 			n = 3 * n + 1;
 		}
+		Less less{};
 		while (n >= 1) {
-			n_sort(n, vector, size);
+			n_sort(n, vector, size, less);
 			n = n / 3;
 		}
 	}
