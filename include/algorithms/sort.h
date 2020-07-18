@@ -24,10 +24,7 @@ namespace {
 namespace algorithms {
 	template<class T>
 	void insertion_sort(data_structures::Vector<T>& vector) {
-		int size = vector.size();
-		for (int i = 1; i < size; ++i) {
-			n_sort(1, vector, size);
-		}
+		n_sort(1, vector, vector.size());
 	}
 
 	template<class T>
