@@ -34,7 +34,7 @@ namespace data_structures {
 			return *this;
 		};
 
-		int& operator[](int index) {
+		T& operator[](int index) {
 			assert(0 <= index && index < myCurrentSize);
 			return myArray[index];
 		};
