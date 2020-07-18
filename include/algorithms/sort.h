@@ -34,7 +34,7 @@ namespace algorithms {
 	void selection_sort(data_structures::Vector<T>& vector) {
 		int size = vector.size();
 		for (int i = 0; i < size; ++i) {
-			int smallest = vector[i];
+			T smallest = vector[i];
 			int smallestIndex = i;
 			for (int j = i + 1; j < size; ++j) {
 				if (vector[j] < smallest) {
