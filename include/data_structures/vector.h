@@ -39,6 +39,11 @@ namespace data_structures {
 			return myArray[index];
 		};
 
+		T operator[](int index) const {
+			assert(0 <= index && index < myCurrentSize);
+			return myArray[index];
+		}
+
 		friend std::ostream& operator<<(std::ostream& outputStream, const Vector& vector) {
 			outputStream << "[ ";
 			for (int i = 0; i < vector.myCurrentSize; i++) {
