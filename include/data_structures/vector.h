@@ -32,12 +32,12 @@ namespace data_structures {
 			if (this == &vector) return *this;
 			std::swap(*this, vector);
 			return *this;
-		};
+		}
 
 		T& operator[](int index) {
 			assert(0 <= index && index < myCurrentSize);
 			return myArray[index];
-		};
+		}
 
 		T operator[](int index) const {
 			assert(0 <= index && index < myCurrentSize);
