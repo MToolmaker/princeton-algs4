@@ -55,7 +55,7 @@ namespace data_structures {
 			myArray[myCurrentSize++] = element;
 		}
 
-		int size() {
+		int size() const {
 			return myCurrentSize;
 		}
 
