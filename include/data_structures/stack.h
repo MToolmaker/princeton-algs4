@@ -18,6 +18,15 @@ namespace data_structures {
 			myArray = new T[myCapacity];
 		}
 
+		Stack(const Stack& stack) {
+			myCapacity = stack.myCapacity;
+			myCurrentSize = stack.myCurrentSize;
+			myArray = new T[myCapacity];
+			for (int i = 0; i < myCurrentSize; i++) {
+				myArray[i] = stack.myArray[i];
+			}
+		}
+
 		void push(T element) {
 			if (myCurrentSize >= myCapacity) {
 				resize(2 * myCapacity);
