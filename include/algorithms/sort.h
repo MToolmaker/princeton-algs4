@@ -61,7 +61,7 @@ namespace algorithms {
 
 	template<class T>
 	void swap(data_structures::Vector<T>& vector, int i, int j) {
-		int tmp = vector[j];
+		T tmp = vector[j];
 		vector[j] = vector[i];
 		vector[i] = tmp;
 	}
