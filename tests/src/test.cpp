@@ -7,7 +7,9 @@
 #include <data_structures/queue_test.h>
 #include <data_structures/vector_test.h>
 #include <data_structures/sort_test.h>
+#include <data_structures/convex_hull_test.h>
 #include <exercises/percolation_test.h>
+
 
 namespace tests {
 	void runTests() {
@@ -17,5 +19,6 @@ namespace tests {
 		runQueueTests();
 		runVectorTests();
 		runSortTests();
+		runConvexHullTests();
 	}
 }
