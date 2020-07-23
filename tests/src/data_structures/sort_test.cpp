@@ -4,7 +4,6 @@
 
 #include <data_structures/vector.h>
 #include <algorithms/sort.h>
-#include <functional>
 
 namespace tests {
 	void runInsertionSortTest();
@@ -26,12 +25,14 @@ namespace tests {
 		runSelectionSortWithComparatorTest();
 		runShellSortTest();
 		runShellSortWithComparatorTest();
-		std::cout << "All sort tests passed" << std::endl;
 	}
 
 	void fillWithNaturalNumbersInDescendingOrderFrom(int number, data_structures::Vector<int>& vector);
 
 	void checkContainsNaturalNumberInAscendingOrder(data_structures::Vector<int>& vector);
+
+	template<class Less = std::less<int>>
+	void checkSortingAlgorithm(void (*sort)(data_structures::Vector<int>&, Less&));
 
 	struct LessInt {
 		bool operator()(const int& a, const int& b) const {
@@ -40,44 +41,35 @@ namespace tests {
 	};
 
 	void runInsertionSortTest() {
-		data_structures::Vector<int> vector(1);
-		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
-		algorithms::insertion_sort(vector);
-		checkContainsNaturalNumberInAscendingOrder(vector);
+		checkSortingAlgorithm(algorithms::insertion_sort);
 	}
 
 	void runInsertionSortWithComparatorTest() {
-		data_structures::Vector<int> vector(1);
-		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
-		algorithms::insertion_sort<int, LessInt>(vector);
-		checkContainsNaturalNumberInAscendingOrder(vector);
+		checkSortingAlgorithm<LessInt>(algorithms::insertion_sort);
 	}
 
 	void runSelectionSortTest() {
-		data_structures::Vector<int> vector(1);
-		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
-		algorithms::selection_sort(vector);
-		checkContainsNaturalNumberInAscendingOrder(vector);
+		checkSortingAlgorithm(algorithms::selection_sort);
 	}
 
 	void runSelectionSortWithComparatorTest() {
-		data_structures::Vector<int> vector(1);
-		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
-		algorithms::selection_sort<int, LessInt>(vector);
-		checkContainsNaturalNumberInAscendingOrder(vector);
+		checkSortingAlgorithm<LessInt>(algorithms::selection_sort);
 	}
 
 	void runShellSortTest() {
-		data_structures::Vector<int> vector(1);
-		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
-		algorithms::shell_sort(vector);
-		checkContainsNaturalNumberInAscendingOrder(vector);
+		checkSortingAlgorithm(algorithms::shell_sort);
 	}
 
 	void runShellSortWithComparatorTest() {
+		checkSortingAlgorithm<LessInt>(algorithms::shell_sort);
+	}
+
+	template<class Less>
+	void checkSortingAlgorithm(void (*sort)(data_structures::Vector<int>&, Less&)) {
 		data_structures::Vector<int> vector(1);
 		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
-		algorithms::shell_sort<int, LessInt>(vector);
+		Less less{};
+		sort(vector, less);
 		checkContainsNaturalNumberInAscendingOrder(vector);
 	}
 
