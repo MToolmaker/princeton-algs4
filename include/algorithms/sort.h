@@ -22,15 +22,13 @@ namespace {
 }
 
 namespace algorithms {
-	template<class T, class Less = std::less<T>>
-	void insertion_sort(data_structures::Vector<T>& vector) {
-		Less less{};
+	template<class T, class Less>
+	void insertion_sort(data_structures::Vector<T>& vector, Less& less) {
 		n_sort(1, vector, vector.size(), less);
 	}
 
-	template<class T, class Less = std::less<T>>
-	void selection_sort(data_structures::Vector<T>& vector) {
-		Less less{};
+	template<class T, class Less>
+	void selection_sort(data_structures::Vector<T>& vector, Less& less) {
 		int size = vector.size();
 		for (int i = 0; i < size; ++i) {
 			T smallest = vector[i];
@@ -44,15 +42,14 @@ namespace algorithms {
 		}
 	}
 
-	template<class T, class Less = std::less<T>>
-	void shell_sort(data_structures::Vector<T>& vector) {
+	template<class T, class Less>
+	void shell_sort(data_structures::Vector<T>& vector, Less& less) {
 		int size = vector.size();
 		int n = 1;
 		int thirdOfSize = size / 3;
 		while (n < thirdOfSize) {
 			n = 3 * n + 1;
 		}
-		Less less{};
 		while (n >= 1) {
 			n_sort(n, vector, size, less);
 			n = n / 3;
