@@ -28,9 +28,10 @@ namespace data_structures {
 			}
 		}
 
-		Vector& operator=(const Vector& vector) {
-			if (this == &vector) return *this;
-			std::swap(*this, vector);
+		Vector& operator=(Vector vector) {
+			std::swap(myCapacity, vector.myCapacity);
+			std::swap(myCurrentSize, vector.myCurrentSize);
+			std::swap(*myArray, *vector.myArray);
 			return *this;
 		}
 
