@@ -5,6 +5,8 @@
 #ifndef PRINCETON_ALGS4_INCLUDE_ALGORITHMS_SORT_H_
 #define PRINCETON_ALGS4_INCLUDE_ALGORITHMS_SORT_H_
 
+#include <data_structures/vector.h>
+
 namespace algorithms {
 	template<class T>
 	void swap(data_structures::Vector<T>& vector, int i, int j);
