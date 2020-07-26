@@ -12,13 +12,16 @@
 namespace data_structures {
 	template<class T>
 	struct Vector {
-		explicit Vector(int capacity) : Vector(0, capacity){}
+		explicit Vector(int capacity) : Vector(0, capacity, true){}
 
-		explicit Vector(int size, int capacity) {
+		explicit Vector(int size, int capacity) : Vector(size, capacity, true){}
+
+		explicit Vector(int size, int capacity, bool shouldSetWithNulls) {
 			assert(capacity > 0);
 			myCapacity = capacity;
 			myCurrentSize = size;
 			myArray = new T[myCapacity];
+			if (!shouldSetWithNulls) return;
 			for (int i = 0; i < myCurrentSize; i++) {
 				myArray[i] = T{};
 			}
