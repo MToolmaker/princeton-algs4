@@ -18,9 +18,13 @@ namespace tests {
 
 	void runShellSortWithComparatorTest();
 
-	void runMergeSortTest();
+	void runBottomUpMergeSortTest();
 
-	void runMergeSortWithComparatorTest();
+	void runBottomUpMergeSortWithComparatorTest();
+
+	void runTopDownMergeSortTest();
+
+	void runTopDownMergeSortWithComparatorTest();
 
 	void runSortTests() {
 		runInsertionSortTest();
@@ -29,8 +33,10 @@ namespace tests {
 		runSelectionSortWithComparatorTest();
 		runShellSortTest();
 		runShellSortWithComparatorTest();
-		runMergeSortTest();
-		runMergeSortWithComparatorTest();
+		runBottomUpMergeSortTest();
+		runBottomUpMergeSortWithComparatorTest();
+		runTopDownMergeSortTest();
+		runTopDownMergeSortWithComparatorTest();
 	}
 
 	void fillWithNaturalNumbersInDescendingOrderFrom(int number, data_structures::Vector<int>& vector);
@@ -70,12 +76,20 @@ namespace tests {
 		checkSortingAlgorithm<LessInt>(algorithms::shell_sort);
 	}
 
-	void runMergeSortTest() {
+	void runBottomUpMergeSortTest() {
 		checkSortingAlgorithm(algorithms::bottom_up_merge_sort);
 	}
 
-	void runMergeSortWithComparatorTest() {
+	void runBottomUpMergeSortWithComparatorTest() {
 		checkSortingAlgorithm<LessInt>(algorithms::bottom_up_merge_sort);
+	}
+
+	void runTopDownMergeSortTest() {
+		checkSortingAlgorithm(algorithms::top_down_merge_sort);
+	}
+
+	void runTopDownMergeSortWithComparatorTest() {
+		checkSortingAlgorithm<LessInt>(algorithms::top_down_merge_sort);
 	}
 
 	template<class Less>
