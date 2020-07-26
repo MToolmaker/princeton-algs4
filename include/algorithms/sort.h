@@ -21,6 +21,26 @@ namespace {
 			}
 		}
 	}
+
+	template<class T, class Less>
+	void merge(data_structures::Vector<T>& data,
+			   data_structures::Vector<T>& auxiliary,
+			   int lo,
+			   int mid,
+			   int hi,
+			   Less less) {
+		for (int k = lo; k <= hi; k++) {
+			auxiliary[k] = data[k];
+		}
+		int i = lo;
+		int j = mid + 1;
+		for (int k = lo; k <= hi; k++) {
+			if (i > mid) data[k] = auxiliary[j++];
+			else if (j > hi) data[k] = auxiliary[i++];
+			else if (less(auxiliary[j], auxiliary[i])) data[k] = auxiliary[j++];
+			else data[k] = auxiliary[i++];
+		}
+	}
 }
 
 namespace algorithms {
@@ -56,6 +76,16 @@ namespace algorithms {
 			n_sort(n, vector, size, less);
 			n = n / 3;
 		}
+	}
+
+	template<class T, class Less>
+	void bottom_up_merge_sort(data_structures::Vector<T>& vector, Less& less) {
+		int size = vector.size();
+		int upperBound = size - 1;
+		data_structures::Vector<T> auxiliary(size, size, false);
+		for (int sz = 1; sz < size; sz = 2 * sz)
+			for (int lo = 0; lo < size - sz; lo += 2 * sz)
+				merge(vector, auxiliary, lo, lo + sz - 1, std::min(lo + 2 * sz - 1, upperBound), less);
 	}
 
 	template<class T>
