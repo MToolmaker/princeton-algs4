@@ -12,11 +12,16 @@
 namespace data_structures {
 	template<class T>
 	struct Vector {
-		explicit Vector(int capacity) {
+		explicit Vector(int capacity) : Vector(0, capacity){}
+
+		explicit Vector(int size, int capacity) {
 			assert(capacity > 0);
 			myCapacity = capacity;
-			myCurrentSize = 0;
+			myCurrentSize = size;
 			myArray = new T[myCapacity];
+			for (int i = 0; i < myCurrentSize; i++) {
+				myArray[i] = T{};
+			}
 		}
 
 		Vector(const Vector& vector) {
