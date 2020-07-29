@@ -35,10 +35,19 @@ namespace {
 		int i = lo;
 		int j = mid + 1;
 		for (int k = lo; k <= hi; k++) {
-			if (i > mid) data[k] = auxiliary[j++];
-			else if (j > hi) data[k] = auxiliary[i++];
-			else if (less(auxiliary[j], auxiliary[i])) data[k] = auxiliary[j++];
-			else data[k] = auxiliary[i++];
+			if (i > mid) {
+				data[k] = auxiliary[j++];
+				continue;
+			}
+			if (j > hi) {
+				data[k] = auxiliary[i++];
+				continue;
+			}
+			if (less(auxiliary[j], auxiliary[i])) {
+				data[k] = auxiliary[j++];
+				continue;
+			}
+			data[k] = auxiliary[i++];
 		}
 	}
 
