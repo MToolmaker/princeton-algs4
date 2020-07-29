@@ -41,6 +41,20 @@ namespace {
 			else data[k] = auxiliary[i++];
 		}
 	}
+
+	template<class T, class Less>
+	void top_down_merge_sort(data_structures::Vector<T>& vector,
+							 data_structures::Vector<T>& auxiliary,
+							 Less& less,
+							 int lo,
+							 int hi) {
+		if (hi <= lo) return;
+		int mid = lo + (hi - lo) / 2;
+		top_down_merge_sort(vector, auxiliary, less, lo, mid);
+		top_down_merge_sort(vector, auxiliary, less, mid + 1, hi);
+		if (!less(vector[mid + 1], vector[mid])) return;
+		merge(vector, auxiliary, lo, mid, hi, less);
+	}
 }
 
 namespace algorithms {
@@ -89,24 +103,10 @@ namespace algorithms {
 	}
 
 	template<class T, class Less>
-	static void top_down_merge_sort(data_structures::Vector<T>& vector,
-							 data_structures::Vector<T>& auxiliary,
-							 Less& less,
-							 int lo,
-							 int hi) {
-		if (hi <= lo) return;
-		int mid = lo + (hi - lo) / 2;
-		top_down_merge_sort(vector, auxiliary, less, lo, mid);
-		top_down_merge_sort(vector, auxiliary, less, mid + 1, hi);
-		if (!less(vector[mid + 1], vector[mid])) return;
-		merge(vector, auxiliary, lo, mid, hi, less);
-	}
-
-	template<class T, class Less>
 	void top_down_merge_sort(data_structures::Vector<T>& vector, Less& less) {
 		int size = vector.size();
 		data_structures::Vector<T> auxiliary(size, size, false);
-		top_down_merge_sort(vector, auxiliary, less, 0, size - 1);
+		::top_down_merge_sort(vector, auxiliary, less, 0, size - 1);
 	}
 
 	template<class T>
