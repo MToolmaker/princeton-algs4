@@ -64,6 +64,26 @@ namespace {
 		if (!less(vector[mid + 1], vector[mid])) return;
 		merge(vector, auxiliary, lo, mid, hi, less);
 	}
+
+	template<class T, class Comparator>
+	void quick_sort(data_structures::Vector<T>& vector,
+					Comparator& comparator,
+					int lo,
+					int hi) {
+		if (hi <= lo) return;
+		int lt = lo;
+		int gt = hi;
+		const T& v = vector[lo];
+		int i = lo;
+		while (i <= gt) {
+			int cmp = comparator.compare(vector[i], v);
+			if (cmp < 0) algorithms::swap(vector, lt++, i++);
+			else if (cmp > 0) algorithms::swap(vector, i, gt--);
+			else i++;
+		}
+		quick_sort(vector, comparator, lo, lt - 1);
+		quick_sort(vector, comparator, gt + 1, hi);
+	}
 }
 
 namespace algorithms {
@@ -116,6 +136,12 @@ namespace algorithms {
 		int size = vector.size();
 		data_structures::Vector<T> auxiliary(size, size, false);
 		::top_down_merge_sort(vector, auxiliary, less, 0, size - 1);
+	}
+
+	template<class T, class Comparator>
+	void quick_sort(data_structures::Vector<T>& vector, Comparator& comparator) {
+		int size = vector.size();
+		::quick_sort(vector, comparator, 0, size - 1);
 	}
 
 	template<class T>

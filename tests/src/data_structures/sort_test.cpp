@@ -26,6 +26,8 @@ namespace tests {
 
 	void runTopDownMergeSortWithComparatorTest();
 
+	void runQuickSortWithComparatorTest();
+
 	void runSortTests() {
 		runInsertionSortTest();
 		runInsertionSortWithComparatorTest();
@@ -37,6 +39,7 @@ namespace tests {
 		runBottomUpMergeSortWithComparatorTest();
 		runTopDownMergeSortTest();
 		runTopDownMergeSortWithComparatorTest();
+		runQuickSortWithComparatorTest();
 	}
 
 	void fillWithNaturalNumbersInDescendingOrderFrom(int number, data_structures::Vector<int>& vector);
@@ -90,6 +93,19 @@ namespace tests {
 
 	void runTopDownMergeSortWithComparatorTest() {
 		checkSortingAlgorithm<LessInt>(algorithms::top_down_merge_sort);
+	}
+
+	void runQuickSortWithComparatorTest() {
+		data_structures::Vector<int> vector(1);
+		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
+		struct IntComparator {
+			__unused static int compare(const int a, const int b) {
+				return a < b ? -1 : a > b ? 1 : 0;
+			}
+		};
+		IntComparator intComparator{};
+		algorithms::quick_sort(vector, intComparator);
+		checkContainsNaturalNumberInAscendingOrder(vector);
 	}
 
 	template<class Less>
