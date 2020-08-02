@@ -42,7 +42,7 @@ namespace tests {
 		runQuickSortWithComparatorTest();
 	}
 
-	void fillWithNaturalNumbersInDescendingOrderFrom(int number, data_structures::Vector<int>& vector);
+	void fillWithNaturalNumbers(int number, data_structures::Vector<int>& vector);
 
 	void checkContainsNaturalNumberInAscendingOrder(data_structures::Vector<int>& vector);
 
@@ -97,7 +97,7 @@ namespace tests {
 
 	void runQuickSortWithComparatorTest() {
 		data_structures::Vector<int> vector(1);
-		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
+		fillWithNaturalNumbers(9, vector);
 		struct IntComparator {
 			__unused static int compare(const int a, const int b) {
 				return a < b ? -1 : a > b ? 1 : 0;
@@ -111,7 +111,7 @@ namespace tests {
 	template<class Less>
 	void checkSortingAlgorithm(void (*sort)(data_structures::Vector<int>&, Less&)) {
 		data_structures::Vector<int> vector(1);
-		fillWithNaturalNumbersInDescendingOrderFrom(9, vector);
+		fillWithNaturalNumbers(9, vector);
 		Less less{};
 		sort(vector, less);
 		checkContainsNaturalNumberInAscendingOrder(vector);
@@ -124,10 +124,11 @@ namespace tests {
 		}
 	}
 
-	void fillWithNaturalNumbersInDescendingOrderFrom(int number, data_structures::Vector<int>& vector) {
+	void fillWithNaturalNumbers(int number, data_structures::Vector<int>& vector) {
 		assert(number >= 1);
 		for (int i = number; i >= 0; --i) {
 			vector.pushBack(i);
 		}
+		algorithms::shuffle(vector);
 	}
 }
