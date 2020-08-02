@@ -13,7 +13,7 @@ namespace algorithms {
 	void swap(data_structures::Vector<T>& vector, int i, int j);
 
 	template<class T>
-	__unused void shuffle(data_structures::Vector<T>& vector) {
+	void shuffle(data_structures::Vector<T>& vector) {
 		int size = vector.size();
 		std::random_device dev;
 		std::mt19937 rng(dev());

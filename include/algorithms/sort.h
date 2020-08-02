@@ -6,11 +6,7 @@
 #define PRINCETON_ALGS4_INCLUDE_ALGORITHMS_SORT_H_
 
 #include <data_structures/vector.h>
-
-namespace algorithms {
-	template<class T>
-	void swap(data_structures::Vector<T>& vector, int i, int j);
-}
+#include <algorithms/shuffle.h>
 
 namespace {
 	template<class T, class Less>
@@ -73,7 +69,7 @@ namespace {
 		if (hi <= lo) return;
 		int lt = lo;
 		int gt = hi;
-		const T& v = vector[lo];
+		const T v = vector[lo];
 		int i = lo;
 		while (i <= gt) {
 			int cmp = comparator.compare(vector[i], v);
@@ -141,6 +137,7 @@ namespace algorithms {
 	template<class T, class Comparator>
 	void quick_sort(data_structures::Vector<T>& vector, Comparator& comparator) {
 		int size = vector.size();
+		algorithms::shuffle(vector);
 		::quick_sort(vector, comparator, 0, size - 1);
 	}
 
