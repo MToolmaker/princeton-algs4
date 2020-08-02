@@ -97,6 +97,7 @@ namespace algorithms {
 			for (int j = i + 1; j < size; ++j) {
 				if (less(vector[j], smallest)) {
 					smallestIndex = j;
+					smallest = vector[j];
 				}
 			}
 			swap(vector, smallestIndex, i);
