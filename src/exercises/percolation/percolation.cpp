@@ -106,10 +106,9 @@ namespace exercises {
 		}
 	}
 
-	void
-	connectBottomIfOpen(int n, data_structures::UnionFind& unionFind,
-						const CellColor *cellColors,
-						int randomElement) {
+	void connectBottomIfOpen(int n, data_structures::UnionFind& unionFind,
+							 const CellColor *cellColors,
+							 int randomElement) {
 		if (cellColors[randomElement + n - 1] == CellColor::WHITE) {
 			unionFind.doUnion(randomElement, randomElement + n);
 		}
