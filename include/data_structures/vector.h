@@ -12,9 +12,9 @@
 namespace data_structures {
 	template<class T>
 	struct Vector {
-		explicit Vector(int capacity) : Vector(0, capacity, true){}
+		explicit Vector(int capacity) : Vector(0, capacity, true) {}
 
-		explicit Vector(int size, int capacity) : Vector(size, capacity, true){}
+		explicit Vector(int size, int capacity) : Vector(size, capacity, true) {}
 
 		explicit Vector(int size, int capacity, bool shouldSetWithNulls) {
 			assert(capacity > 0);
