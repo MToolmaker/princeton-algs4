@@ -78,9 +78,9 @@ namespace data_structures {
 		}
 
 	private:
-		int myCapacity;
+		int myCapacity{};
 		T *myArray;
-		int myCurrentSize;
+		int myCurrentSize{};
 
 		void resize(int newSize) {
 			T *newArray = new T[newSize];
