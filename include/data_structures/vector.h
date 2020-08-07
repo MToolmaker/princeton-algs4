@@ -1,3 +1,4 @@
+#include <climits>
 //
 // Created by Ivan Yarkov on 11/07/2020.
 //
@@ -12,9 +13,11 @@
 namespace data_structures {
 	template<class T>
 	struct Vector {
+		explicit Vector() : Vector(0, 8, true) {}
+
 		explicit Vector(int capacity) : Vector(0, capacity, true) {}
 
-		explicit Vector(int size, int capacity) : Vector(size, capacity, true) {}
+		__unused explicit Vector(int size, int capacity) : Vector(size, capacity, true) {}
 
 		explicit Vector(int size, int capacity, bool shouldSetWithNulls) {
 			assert(capacity > 0);
