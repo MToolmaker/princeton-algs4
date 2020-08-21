@@ -1,0 +1,10 @@
+//
+// Created by Ivan Yarkov on 21/08/2020.
+//
+
+#ifndef PRINCETON_ALGS4_TESTS_INCLUDE_DATA_STRUCTURES_MAX_PQ_H_
+#define PRINCETON_ALGS4_TESTS_INCLUDE_DATA_STRUCTURES_MAX_PQ_H_
+namespace tests {
+	void runMaxPriorityQueueTests();
+}
+#endif //PRINCETON_ALGS4_TESTS_INCLUDE_DATA_STRUCTURES_MAX_PQ_H_

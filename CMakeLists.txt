@@ -16,7 +16,9 @@ set(TEST_SOURCES
         tests/src/exercises/percolation_test.cpp
         tests/src/data_structures/queue_test.cpp
         tests/src/data_structures/sort_test.cpp
-        tests/src/data_structures/convex_hull_tests.cpp)
+        tests/src/data_structures/convex_hull_tests.cpp
+        tests/src/data_structures/max_pq_test.cpp
+        tests/src/util.cpp)
 
 set(HEADERS
         include/data_structures/stack.h
@@ -27,7 +29,8 @@ set(HEADERS
         include/algorithms/sort.h
         include/algorithms/shuffle.h
         include/algorithms/convex_hull.h
-        include/data_structures/vertex2f.h)
+        include/data_structures/vertex2f.h
+        include/data_structures/max_pq.h)
 
 set(TEST_HEADERS
         tests/include/data_structures/stack_test.h
@@ -38,7 +41,9 @@ set(TEST_HEADERS
         tests/include/data_structures/vector_test.h
         tests/src/data_structures/vector_test.cpp
         tests/include/data_structures/sort_test.h
-        tests/include/data_structures/convex_hull_test.h)
+        tests/include/data_structures/convex_hull_test.h
+        tests/include/data_structures/max_pq_test.h
+        tests/include/util.h)
 
 include_directories("${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/tests/include")
 
