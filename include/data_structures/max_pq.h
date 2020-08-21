@@ -43,7 +43,7 @@ namespace data_structures {
 			return max;
 		}
 
-		T max() {
+		__unused T max() {
 			return myArray[1];
 		}
 
