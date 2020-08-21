@@ -40,6 +40,7 @@ namespace tests {
 		runTopDownMergeSortTest();
 		runTopDownMergeSortWithComparatorTest();
 		runQuickSortWithComparatorTest();
+		std::cout << "All sort tests passed" << std::endl;
 	}
 
 	void fillWithNaturalNumbers(int number, data_structures::Vector<int>& vector);
